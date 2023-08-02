@@ -16,6 +16,7 @@ Make sure the following filters are selected:
 - Select time stamp: Last 24 hours
 - Select Suppressed: Not Suppressed
 - Select Sensor: OMG-NA-VA-AWS-6-OMNI
+![image](https://github.com/RavikiranSavai/Daily_DevOps_Monitoring/assets/76962621/87f4c15b-ed96-45c0-be67-8fc3d953767f)
 
 **Things to be checked:** Check for Medium & High priority Alarms
 - Rule
@@ -95,6 +96,8 @@ CloudWatch enables you to monitor your complete stack (applications, infrastruct
 - Look for High Utilization Alarms.
 - Review the metric behavior for the last 24hrs and 1 week if required.
 
+![image](https://github.com/RavikiranSavai/Daily_DevOps_Monitoring/assets/76962621/844189e6-7144-422a-a4bb-b7aad9b079ca)
+
 **NOTE:** If you see any alerts, check with the team & resolve the issue. Then update the daily monitoring sheet accordingly.
 
 7) **Identity Portal:**
@@ -118,6 +121,7 @@ Test REST API Calls to EmpowerID Access Manager
 **Things to be checked:** 
 - Access the URLs & Execute REST URL with `amapi/user/login/global.monitoring?p=Lg!9052014`
 - You should get Result: true & Http(s) Status Code: 200 with SID generated.
+![image](https://github.com/RavikiranSavai/Daily_DevOps_Monitoring/assets/76962621/122507ff-501e-43c4-bd8b-3163b7c06ddd)
 
 **NOTE:** If you see any alerts, check with the team & resolve the issue. Then update the daily monitoring sheet accordingly.
 
@@ -196,6 +200,8 @@ AWS Batch helps you to run batch computing workloads on the AWS Cloud.
 - Clone the devops repo from the above-mentioned bitbucket URL, you can find the helper scripts in the release branch.
 - Using helper scripts, we can generate failed batch jobs.
 - Go to aws-batch folder under helper scripts and run the get_failed_batch_jobs.py script to generate the failed batch jobs for the last 24hrs.
+
+![image](https://github.com/RavikiranSavai/Daily_DevOps_Monitoring/assets/76962621/7b14a70a-6ed1-4484-a2f5-93b0245a1874)
 
 **Note:** Inform the respective team for the failed Batch Jobs.
 
