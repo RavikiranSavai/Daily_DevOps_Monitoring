@@ -1,5 +1,235 @@
 # Daily_DevOps_Monitoring
 
+# Daily Monitoring
+
+**URL for checklist:** [daily_monitoring_checklist](daily_monitoring_checklist)
+
+1) **Alien Vault:**
+
+AlienVault is an open-source security information and event management (SIEM) product. A SIEM collects event data from various security logs within the organization, such as those for enterprise security controls, operating systems, and applications.
+
+**URL:** [Alien Vault Dashboard](https://omnicom.alienvault.cloud/#/dashboard/)
+
+Go to Activity and select the Alarm: Daily-Monitoring.
+
+Make sure the following filters are selected:
+- Select time stamp: Last 24 hours
+- Select Suppressed: Not Suppressed
+- Select Sensor: OMG-NA-VA-AWS-6-OMNI
+
+**Things to be checked:** Check for Medium & High priority Alarms
+- Rule
+- Source
+- Priority
+- Intent
+
+**NOTE:** If you see any alerts, raise an email to the user/team for acknowledgement and update the daily monitoring sheet accordingly.
+
+2) **GuardDuty Findings:**
+
+Amazon GuardDuty is a threat detection service that continuously monitors your AWS accounts and workloads for malicious activity and delivers detailed security findings for visibility and remediation.
+
+**URLs:**
+- [US-East-1](https://us-east-1.console.aws.amazon.com/guardduty/home?region=us-east-1)
+- [EU-West-1](https://eu-west-1.console.aws.amazon.com/guardduty/home?region=eu-west-1)
+- [ME-South-1](https://me-south-1.console.aws.amazon.com/guardduty/home?region=me-south-1)
+
+**Things to be checked:**
+- Finding type
+- Resource
+- Lastseen
+
+**NOTE:** If you see any alerts, raise an email to the user/team for acknowledgement and update the daily monitoring sheet accordingly.
+
+3) **Pingdom:**
+
+Pingdom provides complete monitoring of endpoints and application availability. It combines synthetic monitoring with end-user monitoring to offer ultimate visibility and quick troubleshooting of performance problems affecting your end-users.
+
+**URL:** [Pingdom Stats](http://stats.pingdom.com/p6dhne61dk4a)
+
+**Things to be checked:**
+Check the current status of all the applications/websites, it should be up and running condition.
+
+**NOTE:** If you see any downtime for the application/website due to Service disruption or Service outage, please contact seniors for the solution.
+
+4) **AWS Health Dashboard:**
+
+The AWS Health Dashboard is the single place to learn about the availability and operations of AWS services. You can view the overall status of AWS services, and you can sign in to view personalized communications about your particular AWS account or organization.
+
+**URL:** [AWS Health Dashboard](https://health.aws.amazon.com/health/home)
+
+**Things to be checked:**
+- Open and recent issues
+- Scheduled changes
+- Other notifications
+
+**NOTE:** Select the Event summary, check for the Affected resources, and update the details on the monitoring sheet.
+
+5) **Datadog:**
+
+Datadog is a SaaS-based monitoring and analytics platform for large-scale applications and infrastructure. Combining real-time metrics from servers, containers, databases, and applications with end-to-end tracing, Datadog delivers actionable alerts and powerful visualizations to provide full-stack observability.
+
+**Things to be checked:**
+- Check for the windows server status: should be up and running condition
+  - URL: [Windows Server Status](https://app.datadoghq.com/monitors/manage?q=metric%3A%22windows_service.state%22)
+- EC2-Disk space Utilization: Critical (EC2 High Disk UTILIZATION ≥ 85%)
+  - URL: [EC2-Disk Space Utilization](https://app.datadoghq.com/dashboard/kzz-n3h-97m/diskspace-utilization?from_ts=1564466936877&live=true&to_ts=1564467836877&tpl_var_App=*)
+- EC2-High CPU Utilization: High (EC2 High CPU UTILIZATION ≥ 85%)
+  - URL: [EC2-High CPU Utilization](https://app.datadoghq.com/dashboard/8nv-7gj-gp5/cpu-utilization-on-all-hosts?from_ts=1564466994163&to_ts=1564467894163&live=true)
+- EC2-High Memory Utilization: High (EC2 High Memory UTILIZATION ≥ 90%)
+  - URL: [EC2-High Memory Utilization](https://app.datadoghq.com/dashboard/kgg-v4s-des/memory-utilization-on-all-hosts?from_ts=1564467020800&to_ts=1564467920800&live=true)
+- RDS CPU Utilization, DB connections: RDS - Critical (High CPU & DB Connections)
+  - URL: [RDS CPU Utilization](https://app.datadoghq.com/dashboard/d5p-bqf-tpb/shared-mssql-rds-prod?from_ts=1626787597144&to_ts=1626801997144&live=true)
+- RDS Storage Status: RDS - Critical (High Disk UTILIZATION ≥ 85%)
+  - URL: [RDS Storage Status](https://app.datadoghq.com/dashboard/n8k-t4b-2wh/rds-storage-usage?from_ts=1582781458347&live=true&to_ts=1582785058347)
+
+**NOTE:** If you see any alerts, check with the team & resolve the issue. Then update the daily monitoring sheet accordingly.
+
+6) **AWS CloudWatch Alarms:**
+
+CloudWatch enables you to monitor your complete stack (applications, infrastructure, and services) and use alarms, logs, and events data to take automated actions and reduce mean time to resolution (MTTR). This frees up important resources and allows you to focus on building applications and business value.
+
+**URL:** [AWS CloudWatch Alarms](https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#alarm:alarmFilter=inAlarm)
+
+**Things to be checked:** 
+- Look for High Utilization Alarms.
+- Review the metric behavior for the last 24hrs and 1 week if required.
+
+**NOTE:** If you see any alerts, check with the team & resolve the issue. Then update the daily monitoring sheet accordingly.
+
+7) **Identity Portal:**
+
+It is a Self-Service Password Reset application used to change your ANNALECTWW AD password by yourself.
+
+**URL:** [Identity Portal](https://identity.annalect.com/showLogin.cc)
+
+**Things to be checked:**
+- We need to validate if we can log in to the site.
+
+8) **AccessManager REST API Calls:**
+
+Test REST API Calls to EmpowerID Access Manager
+
+**URLs:**
+- Prod: [AccessManager Prod](https://access.annalect.com/am/api.html)
+- QA: [AccessManager QA](https://qaaccess.annalect.com/am/api.html)
+- Dev: [AccessManager Dev](https://devaccess.annalect.com/am/api.html)
+
+**Things to be checked:** 
+- Access the URLs & Execute REST URL with `amapi/user/login/global.monitoring?p=Lg!9052014`
+- You should get Result: true & Http(s) Status Code: 200 with SID generated.
+
+**NOTE:** If you see any alerts, check with the team & resolve the issue. Then update the daily monitoring sheet accordingly.
+
+9) **Loggly Data Volume Usage:**
+
+Loggly is a cloud-based logging-as-a-service platform that indexes customer log data to help identify issues in real-time, pinpoint root causes, and resolve problems quickly.
+
+**URL:** [Loggly Data Volume Usage](https://annalect.loggly.com/account/overview)
+
+**Things to be checked:**
+- Data Volume Usage should not exceed Daily volume limit: 20GB
+
+**NOTE:** If you see the limit exceeds, find which Event timeline is causing the usage limit. Then update the daily monitoring sheet accordingly.
+
+10) **Bamboo Remote Agents Status:**
+
+Bamboo is a continuous integration (CI) and continuous delivery (CD) server. Bamboo assists software development teams by providing automated building and testing of software source-code status updates on successful/failed builds.
+
+**URL:** [Bamboo Remote Agents Status](https://bamboo.annalect.com/admin/agent/configureAgents!doDefault.action)
+
+**Things to be checked:**
+
+All 3 Remote agents must be in an online state:
+- BuildServer-New.ANNALECTWW.COM
+- reso-web-PR-d-1.ANNALECTWW.COM
+- SSOWEBDEV1.ANNALECTWW.COM
+
+11) **AWS Trusted Advisor Security:**
+
+Trusted Advisor can help improve the security of your AWS environment by suggesting foundational security best practices curated by security experts.
+
+**URL:** [AWS Trusted Advisor Security](https://console.aws.amazon.com/trustedadvisor/home?region=us-east-1#/category/security?filter=all)
+
+**Things to be checked:**
+- Check for the recommended actions for the security checks and update the list of actions on the monitoring sheet.
+
+**NOTE:** If you see any new Security Check other than existing checks, review the resource with the team for the recommended action.
+
+12) **CloudWatch Alarms for dsdk spectrum:**
+
+**URLs:**
+- [dsdk-v0p1-annalect_1d6b3fe2-c448-4581-adb2-1dba395a1561_UsageLimitConsumed_Alarm](https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#alarmsV2:alarm/dsdk-v0p1-annalect_1d6b3fe2-c448-4581-adb2-1dba395a1561_UsageLimitConsumed_Alarm?~(search~%27consum))
+- [dsdk-v0p1-annalect_39fe5b64-fb77-4d53-8090-d2435b3ac6c5_UsageLimitConsumed_Alarm](https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#alarmsV2:alarm/dsdk-v0p1-annalect_39fe5b64-fb77-4d53-8090-d2435b3ac6c5_UsageLimitConsumed_Alarm?~(search~%27consum))
+
+Check the usage limit for the following dsdk DB spectrums and ensure that it does not exceed the 500T Bytes limit.
+
+**Note:** If you see the alert (Even for 300TB) - notify John - john.briscoe@annalect.com
+
+13) **Audience Builder Redshift Clusters**
+
+These are temporary Redshift Clusters
+
+**URL:** [Audience Builder Redshift Clusters](https://us-east-1.console.aws.amazon.com/redshiftv2/home?region=us-east-1#clusters)
+
+Check if the Audience Builder clusters like abstgxxxxxxxxxxx or abprodxxxxxxxxxxx are running for more than 3 hours.
+
+14) **AWS Certificate Manager**
+
+AWS Certificate Manager (ACM) handles the complexity of creating, storing, and renewing public and private SSL/TLS X.509 certificates and keys that protect your AWS websites and applications.
+
+**URLs:**
+- [US-East-1](https://console.aws.amazon.com/acm/home?region=us-east-1#/certificates/list)
+- [EU-West-1](https://console.aws.amazon.com/acm/home?region=eu-west-1#/certificates/list)
+- [ME-South-1](https://console.aws.amazon.com/acm/home?region=me-south-1#/certificates/list)
+
+Check for Certificates expiring in one month and inform Shashi in Standup call.
+
+**Note:** Update the monitoring sheet with the latest expiring certificate which is in-use status.
+
+15) **Batch Jobs**
+
+AWS Batch helps you to run batch computing workloads on the AWS Cloud.
+
+**URL for Helper scripts:** [Helper Scripts](https://bitbucket.org/annalect/devops/src/release/helper-scripts/)
+
+- Clone the devops repo from the above-mentioned bitbucket URL, you can find the helper scripts in the release branch.
+- Using helper scripts, we can generate failed batch jobs.
+- Go to aws-batch folder under helper scripts and run the get_failed_batch_jobs.py script to generate the failed batch jobs for the last 24hrs.
+
+**Note:** Inform the respective team for the failed Batch Jobs.
+
+16) **Redshift Audit Logs**
+
+These logs help you to monitor the database for security and troubleshooting purposes, a process called database auditing.
+
+- Check if the job is successful by querying the respective table and check if it’s getting populated.
+- Also, check for Success notification at S3 path: annalect-audit-logs/sqlactivity
+- Run the below script to generate an audit report:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 | #                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Check                                                                                                                                                                                                                                                                                     | URL                                                                                                                                                                                  | WHAT NEEDS TO BE CHECKED                                                                                 | Severity / Filters                          | Events/Status                                                                                                     | Action | Comments |   |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------|--------|----------|---|
 | 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | "Alien Vault Dashboard                                                                                                                                                                                                                                                                    |
